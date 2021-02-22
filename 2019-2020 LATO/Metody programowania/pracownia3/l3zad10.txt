@@ -1,0 +1,88 @@
+
+Zadanie domowe z metod programowania
+(zad 10 lista 3)
+a)
+Dla dowolnych list xs, yx czemu równowa¿ne jest wyra¿enie (map f (append xs ys))?
+Odp. (map f (append xs ys)) ?  (append (map f xs) (map f ys))
+Dowód:
+Zasada indukcji:
+Dla dowolnej w³asnoœci P jeœli:
+	(1) zachodzi P(null)
+	(2) jeœli zachodzi P(xs), to dla dowolnego x zachodzi P(cons (x xs)), to:
+Dla dowolnego xs, jeœli xs jest list¹, to zachodzi P(xs).
+PrzeprowadŸmy indukcjê wzglêdem xs i w³asnoœci podanej w odpowiedzi.
+Podstawa indukcji.
+Czy (map f (append null ys)) ?  (append (map f null) (map f ys))?
+(map f (append null ys)) ?(def map) (cons (f (car (append null ys)))
+							  (map f (cdr (append null ys)))) ?
+(cons (f null) (map f ys)) ? (append null (map f ys)).
+	
+Krok indukcyjny.
+Za³ó¿my, ¿e (map f (append xs ys)) ?  (append (map f xs) (map f ys)).
+WeŸmy dowolne x. Zobaczmy, czy (2) zachodzi.
+(map f (append (cons x xs) ys)) ?(def map) 
+(cons (f (car (append (cons x xs) ys)))
+	(map f (cdr (append (cons x xs) ys)))) ?
+(cons (f x)
+	(map f (append xs ys)))  ?(za³.ind.)
+(cons (f x)
+	(append (map f xs) (map f ys))) ?(zwijamy def append)
+(append (f x) (append (map f xs) (map f ys)) ? (z æwiczenia 6, lista 3)
+(append (append (f x) (map f xs)) (map f ys)) ?(def appenda)
+(append (cons (f x) (map f xs)) (map f ys)) ? 
+(append (cons (map f x) (map f xs)) (map f ys)) ? 
+(append (map f (cons x xs)) (map f ys)).
+Zatem, na mocy zasady indukcji teza z odpowiedzi jest prawdziwa.
+b) Dla dowolnych list xs, yx czemu równowa¿ne jest wyra¿enie
+(filter p? (append xs ys))?
+Odp.  (filter p? (append xs ys)) ? (append (filter p? xs) (filter p? ys))
+Dowód:
+Zasada indukcji:
+Dla dowolnej w³asnoœci P jeœli:
+	(1) zachodzi P(null)
+	(2) jeœli zachodzi P(xs), to dla dowolnego x zachodzi P(cons (x xs)), to:
+Dla dowolnego xs, jeœli xs jest list¹, to zachodzi P(xs).
+PrzeprowadŸmy dowód wzglêdem xs i w³asnoœci podanej w odpowiedzi.
+Podstawa indukcji.
+Czy  (filter p? (append null ys)) ? (append (filter p? null) (filter p? ys))?
+(filter p? (append null ys)) ?(def filter)
+(if (p? (car (append null ys)))
+	(cons (car (append null ys)) 
+		(filter p? (cdr (append null ys)))
+	(filter p? (cdr (append null ys)) ?
+(if (p? (car (append null ys)))
+	(cons null (filter p? ys)
+	(filter p? ys)) ? (z tego, ze append null k = k)
+(if (p? (car (append null ys)))
+	(append null (filter p? ys)
+	(append null (filter p? ys)) ? (append null (filter p? ys)).
+Krok indukcyjny.
+(filter p? (append (cons x xs) ys )) ? (def filter)
+(if (p? (car (append (cons x xs) ys))
+	(cons (car (append (cons x xs) ys))
+		(filter p? (cdr (append (cons x xs) ys)))
+	(filter p? (cdr (append (cons x xs) ys))) ? (upraszczamy dlugie appendy)
+(if (p? x)
+	(cons x (filter p? (append xs ys))) (A)
+	(filter p? (append xs ys)))(B) ? (rozwa¿my dwa przypadki, odpow. A, B)
+(A) Czyli ?(p? x) = T
+	(cons x (filter p? (append xs ys))) ? (def append)
+(append x (filter p? (append xs ys))) ? (za³. ind.)
+(append x (append (filter p? xs) (filter p? ys))) ? 
+//skoro ?(p? x) = T, to x ? (filter p? x), wiêc dostajemy //
+(append (filter p? x) (append (filter p? xs) (filter p? ys))) ? 
+// przejœcie z w³asnoœci udowodnionej w zad 6 z listy 3// 
+(append (append (filter p? x) (filter p? xs)) (filter p? ys)) ? (def append)
+(append (cons (filter p? x) (filter p? xs)) (filter p? ys)) ?
+(append (filter p? (cons x xs)) (filter p? ys)).
+(B) Czyli ?(p? x) = F
+	(filter p? (append xs ys)) ? (za³. ind.)
+(append (filter p? xs) (filter p? ys)) ? //bo bezpoœrednio z B wynika, ¿e:
+//	(filter p? (cons x xs)) = (filter p? xs) (bo filter odsieje nam "x")	//
+(append (filter p? (cons xs x)) (filter p? ys)).
+Zatem, na mocy zasady indukcji, teza z odpowiedzi w podpunkcie b zosta³a spe³niona.
+
+Kacper Bajkiewicz, nr indeksu 314438
+
+
+
