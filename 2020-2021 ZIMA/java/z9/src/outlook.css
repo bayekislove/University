@@ -1,0 +1,19 @@
+.textField{
+    -fx-background-color: rgb(175, 152, 152);
+    -fx-font-size: 20px;
+    -fx-text-alignment: center;
+}
+
+.charButton{
+    -fx-background-radius: 40%;
+    -fx-background-color: rgb(224, 221, 176);
+    -fx-font-size: 20px;
+}
+
+.opButton{
+    -fx-font-size: 15px;
+}
+
+.bg{
+    -fx-font-family: "Courier New"
+}
