@@ -1,0 +1,41 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+  }
+
+.box1 {
+  background-color: red;
+  margin: 30px;
+  width: 70px;
+  height: 70px;
+}
+
+.box2 {
+  background-color: blue;
+  margin: 30px;
+  width: 70px;
+  height: 70px;
+}
+
+.box3 {
+  background-color: green;
+  margin: 30px;
+  width: 70px;
+  height: 70px;
+}
+
+.box4 {
+  background-color : purple;
+  margin: 30px;
+  width: 70px;
+  height: 70px;
+}
+
+.box5 {
+  background-color: yellow;
+  margin: 30px;
+  width: 70px;
+  height: 70px;
+}

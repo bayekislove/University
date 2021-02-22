@@ -1,0 +1,35 @@
+<?xml version="1.1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:simpleType name="validkonto">
+    <xs:restriction base="xs:integer">
+        <xs:pattern value="\d{26}"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="validpesel">
+    <xs:restriction base="xs:integer">
+        <xs:pattern value="\d{11}"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="validemail">
+    <xs:restriction base="xs:string">
+        <xs:pattern value="\S+@\S+\.\S+"/>
+    </xs:restriction>
+</xs:simpleType>
+
+    <xs:element name="main_form">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="konto" type="validkonto"/>
+                <xs:element name="pesel" type="validpesel" />
+
+                <xs:element name="data_ur" type="xs:date" /> 
+
+                <xs:element name="email" type="validemail" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

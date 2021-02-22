@@ -1,0 +1,30 @@
+.pics{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+
+img{
+    margin: auto;
+    width: 200px;
+    height: 200px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    margin: 15px 30px 15px 30px;
+    height: 30px;
+    width: 70px;
+}
+
+.textlog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

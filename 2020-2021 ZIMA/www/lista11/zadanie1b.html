@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+
+    <script type='text/javascript'
+            src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap'
+            async defer></script>
+
+    <script type='text/javascript'>
+    var map;
+
+    function GetMap()
+    {
+        map = new Microsoft.Maps.Map('#myMap', {
+            credentials: 'Your Bing Maps Key',
+            center: new Microsoft.Maps.Location(51.111541, 17.035808),
+            zoom: 11
+        });
+
+        //Load the Contour module.
+        Microsoft.Maps.loadModule('Microsoft.Maps.Contour', function () {
+            var contourLine1 = new Microsoft.Maps.ContourLine([new Microsoft.Maps.Location(51.136840, 16.981273),new Microsoft.Maps.Location(51.137856, 17.090031),new Microsoft.Maps.Location(51.060820, 17.101425),new Microsoft.Maps.Location(51.081180, 16.959819)]);
+            var layer = new Microsoft.Maps.ContourLayer([contourLine1], {
+                colorCallback: assignContourColor,
+                polygonOptions: {
+                    strokeColor: 'rgba(0, 0, 0, 1)'
+                }
+            });
+
+            map.layers.insert(layer);
+        });
+    }
+    function assignContourColor(value) {
+        var color = 'rgba(235, 140, 14, 0.5)';
+        return color;
+    }
+</script>
+</head>
+<body>
+    <div id="myMap" style="position:relative;width:600px;height:400px;float:left;"></div>
+</body>
+</html>

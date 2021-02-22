@@ -1,0 +1,28 @@
+.centre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+
+th {
+    border: 1px solid #000;;
+}
+
+table { border: none; border-collapse: collapse; }
+table td { border-left: 1px solid #000; }
+table td:first-child { border-left: none; }
+
+table {
+    width: 100%;
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+textarea {
+    width: 300px;
+}
+button{
+    background-color: red;
+    height : 30px;
+    width: 70px;
+}
