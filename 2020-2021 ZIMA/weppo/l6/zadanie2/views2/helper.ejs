@@ -1,0 +1,6 @@
+<% options.forEach( option => { %>
+    <input type='radio' name='<%= namee %>' value='<%= option.val %>'>
+    <label for='<%= option.val %>'> 
+        <%= option.val %>
+    </label> 
+<% }) %>
