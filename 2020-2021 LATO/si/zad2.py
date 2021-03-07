@@ -1,3 +1,7 @@
+import time
+
+start = time.time()
+
 words = set()
 
 for line in open('words_for_ai1.txt', encoding='utf-8'):
@@ -15,7 +19,7 @@ def pom( inp ):
             helper += inp[i]
             if helper in words:
                 if( inp[ (i+1): ]) in calculated: #we now how divide remaining string in the best way
-                    pom_string = calculated.get( inp[ (i+1): ])[0]
+                    pom_string = calculated.get( inp[ (i+1): ])[0] 
                     pom_result = calculated.get( inp[ (i+1): ])[1]
                 else:
                     pom = find_opt_division( inp[ (i+1): ] )
@@ -43,3 +47,6 @@ def tadeusz():
             out_file.write( '\n'.encode('UTF-8') )
 
 tadeusz()
+
+stop = time.time()
+print( stop - start )
