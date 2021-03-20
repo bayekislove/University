@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="c2a2122c-7ce8-4dea-ac14-ae2c5beed60e" Title="zad2" Url="html/931c0cc8-12a2-06f1-c7de-4ba3baba6fdc.htm">
+    <HelpTOCNode Id="08dda57b-cbb4-4815-b19b-d9da9cab996d" Title="Grid Class" Url="html/4a4e8ebe-0037-86f6-0dc1-64c2be477f58.htm">
+      <HelpTOCNode Title="Grid Constructor " Url="html/b0f5b5cc-a2d6-2992-752f-770fcbdfa98f.htm" />
+      <HelpTOCNode Id="409841e2-27b1-4d48-bb56-11ff9b146128" Title="Grid Properties" Url="html/d70115c7-ff3a-70c6-38e3-bd0059e8f6ad.htm">
+        <HelpTOCNode Id="93120c90-f74f-483f-aaab-2f9e26c4cbb5" Title="Item Property " Url="html/82f2b3de-7a28-1d18-7f89-9adda4b7c482.htm">
+          <HelpTOCNode Title="Item Property (Int32)" Url="html/5e4dc914-89cf-b027-72de-f3db3c6aa9d7.htm" />
+          <HelpTOCNode Title="Item Property (Int32, Int32)" Url="html/0d02300c-4f31-806b-3b9b-0387016e3615.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Title="Grid Methods" Url="html/c73c207e-38b1-284d-2718-91046f902f32.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="22a44c9d-8795-4b63-a371-35925fbfb1ae" Title="Program Class" Url="html/6342f35f-6778-61bf-e1e3-cd0a4c507786.htm">
+      <HelpTOCNode Title="Program Constructor " Url="html/1fa5ba38-f542-5e64-ccae-f4387092f000.htm" />
+      <HelpTOCNode Title="Program Methods" Url="html/2da10f20-fe5f-3a28-653f-f738659c0df0.htm" />
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>

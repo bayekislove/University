@@ -5,4 +5,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista1\zad2\zad2.xml</DocumentationFile>
+  </PropertyGroup>
+
 </Project>

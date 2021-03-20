@@ -14,3 +14,4 @@ C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista1\zad2\obj\Debug\net
 C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista1\zad2\obj\Debug\net5.0\ref\zad2.dll
 C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista1\zad2\obj\Debug\net5.0\zad2.pdb
 C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista1\zad2\obj\Debug\net5.0\zad2.genruntimeconfig.cache
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista1\zad2\bin\Debug\net5.0\zad2.xml

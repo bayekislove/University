@@ -1,0 +1,16 @@
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista2\1.2.1\bin\Debug\net5.0\1.2.1.exe
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista2\1.2.1\bin\Debug\net5.0\1.2.1.deps.json
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista2\1.2.1\bin\Debug\net5.0\1.2.1.runtimeconfig.json
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista2\1.2.1\bin\Debug\net5.0\1.2.1.runtimeconfig.dev.json
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista2\1.2.1\bin\Debug\net5.0\1.2.1.dll
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista2\1.2.1\bin\Debug\net5.0\ref\1.2.1.dll
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista2\1.2.1\bin\Debug\net5.0\1.2.1.pdb
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista2\1.2.1\obj\Debug\net5.0\1.2.1.csprojAssemblyReference.cache
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista2\1.2.1\obj\Debug\net5.0\1.2.1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista2\1.2.1\obj\Debug\net5.0\1.2.1.AssemblyInfoInputs.cache
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista2\1.2.1\obj\Debug\net5.0\1.2.1.AssemblyInfo.cs
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista2\1.2.1\obj\Debug\net5.0\1.2.1.csproj.CoreCompileInputs.cache
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista2\1.2.1\obj\Debug\net5.0\1.2.1.dll
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista2\1.2.1\obj\Debug\net5.0\ref\1.2.1.dll
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista2\1.2.1\obj\Debug\net5.0\1.2.1.pdb
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\.net\lista2\1.2.1\obj\Debug\net5.0\1.2.1.genruntimeconfig.cache

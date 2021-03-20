@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>zad2</name>
+    </assembly>
+    <members>
+        <member name="F:zad2.Grid.tab">
+            <summary>
+            Field holding element's values in Grid
+            </summary>
+        </member>
+        <member name="F:zad2.Grid.colSize">
+            <summary>
+            size of columns in Grid
+            </summary>
+        </member>
+        <member name="F:zad2.Grid.rowSize">
+            <summary>
+            size of row in Grid
+            </summary>
+        </member>
+        <member name="M:zad2.Grid.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="row">Number of rows</param>
+            <param name="col">Number of columns</param>
+        </member>
+        <member name="P:zad2.Grid.Item(System.Int32)">
+            <summary>
+            One dimension indexer
+            </summary>
+            <param name="rowIdx"></param>
+            <returns></returns>
+        </member>
+        <member name="P:zad2.Grid.Item(System.Int32,System.Int32)">
+            <summary>
+            Two dimensional indexer
+            </summary>
+            <param name="r">indexed row</param>
+            <param name="c">indexed col</param>
+            <returns>Element in array if getter is called, nothing otherwise</returns>
+        </member>
+    </members>
+</doc>
