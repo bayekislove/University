@@ -1,0 +1,66 @@
+PS C:\Users\Kacper\Desktop\University\2020-2021 LATO\si\p2> python validator2.py zad4 python zad2.py
+Estimated computer speed= 0.2923956159173265
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\si\p2\validator2.py:1150: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+Running case 1... OK!
+Running case 2... OK!
+Running case 3... OK!
+Running case 4... OK!
+Running case 5... OK!
+Running case 6... OK!
+Running case 7... OK!
+Running case 8... OK!
+Running case 9... OK!
+Running case 10... OK!
+Running case 11... OK!
+
+Validation result: 11/11 cases pass.
+
+For passing cases total num_moves: 1312
+For passing cases total time: 76.74494528770447
+PS C:\Users\Kacper\Desktop\University\2020-2021 LATO\si\p2> python validator2.py zad4 python zad2.py
+Estimated computer speed= 0.8421075456422236
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\si\p2\validator2.py:1150: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  DEFAULT_TESTSET = yaml.load(DEFAULT_TESTSET_YAML)
+Running case 1... OK!
+Running case 2... OK!
+Running case 3... OK!
+Running case 4... OK!
+Running case 5... OK!
+Running case 6... OK!
+Running case 8... Killing subprocess.
+SUCCESS: The process with PID 7408 (child process of PID 15392) has been terminated.
+SUCCESS: The process with PID 15392 (child process of PID 8832) has been terminated.
+Failed:
+Bad process exit status: 1
+Running case 9... OK!
+Running case 10... OK!
+Running case 11... OK!
+
+Validation result: 10/11 cases pass.
+
+For passing cases total num_moves: 1182
+For passing cases total time: 27.049904346466064
+
+Some test cases have failed. To rerun the failing cases execute:
+python validator.py --cases 8 zad4 python zad2.py
+PS C:\Users\Kacper\Desktop\University\2020-2021 LATO\si\p2> python validator2.py zad4 python zad2.py
+Estimated computer speed= 0.8380491493988073
+C:\Users\Kacper\Desktop\University\2020-2021 LATO\si\p2\validator2.py:1150: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  DEFAULT_TESTSET = yaml.load(DEFAULT_TESTSET_YAML)
+Running case 1... OK!
+Running case 2... OK!
+Running case 3... OK!
+Running case 4... OK!
+Running case 5... OK!
+Running case 6... OK!
+Running case 7... OK!
+Running case 8... OK!
+Running case 9... OK!
+Running case 10... OK!
+Running case 11... OK!
+
+Validation result: 11/11 cases pass.
+
+For passing cases total num_moves: 1280
+For passing cases total time: 35.28859877586365
+PS C:\Users\Kacper\Desktop\University\2020-2021 LATO\si\p2> ^N

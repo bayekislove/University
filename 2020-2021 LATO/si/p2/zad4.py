@@ -1,100 +1,125 @@
-from random import getrandbits, randint
-from zad4   import optDist
+from random       import randint
+from collections  import deque
 
-def createRandomTab( rows, cols ):
-    tab = [ [ str( getrandbits(1) ) for i in range( cols )] for j in range( rows ) ]
-    tabT = [ [ tab[i][j] for i in range( rows ) ] for j in range( cols ) ]
-    return (tab, tabT)
+def moveBoard( direction, positions, board ):
+    ( rDiff, cDiff ) = moveBoard.directions[direction]
+    newPos = set()
+    for (row, pos) in positions:
+        if( board[ row ][ pos ] not in { 'S', 'B' } ):
+            continue
+        newPos.add( (row, pos) if board[row+rDiff][pos+cDiff] == '#' else (row+rDiff, pos+cDiff) )
+    return newPos
 
-def solve( rows, cols, rowsInp, colsInp ):
-    (tab, tabT) = createRandomTab( rows, cols )
+def prepareToVisualize( board ):
+    ret = []
+    for row in board:
+        r = []
+        for position in row:
+            r.append( position if position in {"#", "B", "G"} else ' ' )
+        ret.append( r )
+    return ret
 
-    corrRows = [ optDist( ''.join( tab[i] ), rowsInp[i] ) for i in range( rows ) ]
-    corrCols = [ optDist( ''.join( tabT[i] ), colsInp[i] ) for i in range( cols ) ]
+def visualize( moves, viss ):
+    vis = [ r[:] for r in viss ]
+    for (cR, cC) in moves:
+        vis[cR][cC] = 'S' 
+    ret = ''
+    for a in vis:
+        ret += ''.join( a ) + '\n'
+    print( ret )
 
-    def chooseRow( ): #returns index of chosen row
-        ( badLine, line ) = ( [ i for i in range( rows ) if corrRows[i] > 0 ], 'r')
-        if( len( badLine ) == 0 ):
-            ( badLine, line ) = ( [ i for i in range(cols) if corrCols[i] > 0 ], 'c' )
-        return ( badLine[ randint( 0, len(badLine) - 1 ) ], line )
+def startPositions( board ):
+    ret = set()
+    for j in range( len(board) ):
+        for i in range( len( board[j] ) ):
+            if board[j][i] in {'S', 'B'}:
+                ret.add( (j, i) )
+    return ret
 
-    def changeTabs( i, j ):
-        newPixel = '0' if int( tab[ i][ j ] ) else '1'
-        tab[ i ][ j ] = newPixel
-        tabT[ j ][ i ] = newPixel
+def vents( board ):
+    ret = set()
+    for j in range( len(board) ):
+        for i in range( len( board[j] ) ):
+            if board[j][i] in {'G', 'B' }:
+                ret.add( (j, i) )
+    return ret
 
-    def chooseBestPixelRow( rowIdx ): #we return index of change in row ( column to change in given row )
-        best = ( 0, cols )
-        for i in range( cols ):
-            changeTabs( rowIdx, i )
-
-            tryMatch = optDist( ''.join( tab[rowIdx] ), rowsInp[ rowIdx ] ) + optDist( ''.join( tabT[i] ), colsInp[i] )
-            if( tryMatch < best[1] ):
-                best = ( i, tryMatch )
-
-            changeTabs( rowIdx, i )
-        return best[0]
-
-    def chooseBestPixelCol( colIdx ): 
-        best = ( 0, rows )
-        for i in range( rows ):
-            changeTabs( i, colIdx )
-
-            tryMatch = optDist( ''.join( tabT[colIdx] ), colsInp[ colIdx ] ) + optDist( ''.join( tab[i] ), rowsInp[i] )
-            if( tryMatch < best[1] ):
-                best = ( i, tryMatch )
-
-            changeTabs( i, colIdx )
-        return best[0]
-
-    count = 1
-    while ( any( corrRows[i] != 0 for i in range( rows ) ) or 
-            any( corrCols[i] != 0 for i in range( cols ) )  ):
+def makeMoves( positions, board ):
+    blankBoard = prepareToVisualize( board )
+    lastMove = -1
+    moves = []  
+    while( len( positions ) > 2 ):
+        if( len( positions ) > -1 ):
+            direction = randint( 0, 3 ) #0 down, 1 left, 2 up, 3 right
+            while( direction == makeMoves.opposite[ lastMove ] ):
+                direction = randint( 0, 3 )
+            moves.append( makeMoves.strDirections[ direction ] )
+            lastMove = direction
+            positions = moveBoard( direction, positions, board )
+            #print( visualize( positions, blankBoard ) )
         
-        ( i, line )  = chooseRow()
-        j = chooseBestPixelRow( i ) if line == 'r' else chooseBestPixelCol( i )
-        
-        if( line == 'r' ): 
-            changeTabs( i, j )
-        else: 
-            changeTabs( j, i )
+        #else:
+        #    guesses = [ len( moveBoard( i, positions, board ) ) for i in range( 4 ) ]
+            #print( min( guesses ) )
+        #    dirr = guesses.index( min( guesses ) )
+        #    positions = moveBoard( dirr, positions, board )
+        #    moves.append( makeMoves.strDirections[ dirr ] )
+    return (positions, ''.join( moves ) )
 
-        corrRows[i] = optDist( ''.join( tab[i] ), rowsInp[i] )
-        corrCols[j] = optDist( ''.join( tabT[j] ), colsInp[j] )
-
-        if( count % 10000 == 0 ):
-            (tab, tabT) = createRandomTab( rows, cols )
-            corrRows = [ optDist( ''.join( tab[i] ), rowsInp[i] ) for i in range( rows ) ]
-            corrCols = [ optDist( ''.join( tab[i] ), colsInp[i] ) for i in range( cols ) ]
-        count += 1
-
-    return tab
-
-def formatOutput( tab ):
-    out = ''
-    for line in tab:
-        for char in line:
-            if char == '1':
-                out += '#'
+def commandoBFS( positions, board, moves, vents ):
+    bfs = deque()
+    bfs.append( ( positions, moves ) )
+    remembered = set()
+    remembered.add( (tuple(positions)) )
+    while( len( bfs ) > 0 ):
+        ( currPos, currHis ) = bfs.pop()
+        remembered.add( (tuple(currPos)) )
+        for i in range( 4 ):
+            newPos = set()
+            ( rD, cD ) = commandoBFS.directions[i]
+            for (r, c) in currPos:
+                if( board[r + rD][c + cD] == '#' ):
+                    newPos.add( (r, c) )
+                else:
+                    newPos.add( ( r + rD, c + cD ) )
+            if ( tuple(newPos) in remembered):
+                continue
+            flague = True
+            for x in newPos:
+                flague = x in vents
+                if( not flague ):
+                    break
+            if( flague ):
+                return currHis + commandoBFS.strDirections[i]
             else:
-                out += '.'
-        out += '\n'
-    return out
+                bfs.append( ( newPos, currHis + commandoBFS.strDirections[i] ) )
 
-with open( 'zad5_output.txt', 'w' ) as out:
-    with open( 'zad5_input.txt' ) as inp:
-        content = inp.read().splitlines()
-    rows = int( content[0].split(' ')[0] )
-    cols = int( content[0].split(' ')[1] )
-    rowsInp = [0] * rows
-    colsInp = [0] * cols
-    for i in range( 1, rows + 1 ):
-        rowsInp[i - 1] = int(content[i])
-        colsInp[i - 1] = int(content[rows + i])
-    out.write( formatOutput( solve( rows, cols, rowsInp, colsInp ) ) )
+commandoBFS.directions = [ (1, 0), (0, -1), (-1, 0), (0, 1) ]
+moveBoard.directions = [ (1, 0), (0, -1), (-1, 0), (0, 1) ]
+commandoBFS.strDirections = ['D', 'L', 'U', 'R']
+makeMoves.strDirections = ['D', 'L', 'U', 'R']
+makeMoves.opposite = [ 2, 3, 0, 1 ]
 
-print( formatOutput( solve(7,7, [7,7,7,7,7,7,7], [7,7,7,7,7,7,7] ) ) )
-print( formatOutput( solve(7,7, [2,2,7,7,2,2,2], [2,2,7,7,2,2,2] ) ) )
-print( formatOutput( solve(7,7, [2,2,7,7,2,2,2], [4,4,2,2,2,5,5] ) ) )
-print( formatOutput( solve(7,7, [7,6,5,4,3,2,1], [1,2,3,4,5,6,7] ) ) )
-print( formatOutput( solve(7,7, [7,5,3,1,1,1,1], [1,2,3,7,3,2,1] ) ) )
+def func():
+    with open( 'zad_output.txt', 'w' ) as out:
+        with open( 'zad_input.txt' ) as inp:
+            rows = []
+            for line in inp:
+                rows.append( line.strip('\n') )
+            #print( vents(rows) )
+            best_path = 151
+            while( best_path > 150 ):
+                (path, mvs) = makeMoves( startPositions(rows), rows )
+                while( len(mvs) > 110 ):
+                    (path, mvs) = makeMoves( startPositions(rows), rows )
+                #print( len(mvs) )
+                res = commandoBFS( path, rows, mvs, vents(rows) )
+                #print( len(res) )
+                if( len(res) <= 150 ):
+                    #visualize( path, prepareToVisualize(rows) )
+                    #print( mvs )
+                    #print( res )
+                    out.write( res )
+                    return
+
+func()
