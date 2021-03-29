@@ -56,14 +56,7 @@ def makeMoves( positions, board ):
             moves.append( makeMoves.strDirections[ direction ] )
             lastMove = direction
             positions = moveBoard( direction, positions, board )
-            #print( visualize( positions, blankBoard ) )
-        
-        #else:
-        #    guesses = [ len( moveBoard( i, positions, board ) ) for i in range( 4 ) ]
-            #print( min( guesses ) )
-        #    dirr = guesses.index( min( guesses ) )
-        #    positions = moveBoard( dirr, positions, board )
-        #    moves.append( makeMoves.strDirections[ dirr ] )
+
     return (positions, ''.join( moves ) )
 
 def commandoBFS( positions, board, moves, vents ):
@@ -72,7 +65,7 @@ def commandoBFS( positions, board, moves, vents ):
     remembered = set()
     remembered.add( (tuple(positions)) )
     while( len( bfs ) > 0 ):
-        ( currPos, currHis ) = bfs.pop()
+        ( currPos, currHis ) = bfs.popleft()
         remembered.add( (tuple(currPos)) )
         for i in range( 4 ):
             newPos = set()

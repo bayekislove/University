@@ -107,38 +107,29 @@ def minimizePossibilities( rowPoss, colsPoss, colsNum, rowsNum ):
                             nextIter = True
                     for delete in toRemove:
                         rowPoss[roww].remove( delete )
-        # rowProd = 1
-        # for row in rowPoss:
-        #     rowProd *= len(row) 
 
-        # colProd = 1
-        # for col in colsPoss:
-        #     colProd *= len( col )
+    return ( rowPoss, colsPoss )
 
-        return ( rowPoss, colsPoss )
+def zad1():
+    with open( 'zad_output.txt', 'w' ) as out:
+        with open( 'zad_input.txt' ) as inp:
+            content = inp.read().splitlines()
+        rows = int( content[0].split(' ')[0] )
+        cols = int( content[0].split(' ')[1] )
+        rowsInp = [0] * rows
+        colsInp = [0] * cols
+        for i in range( 1, rows + 1 ):
+                rowsInp[i - 1] = list( map( int, content[i].split( ' ' ) ) )
+        for i in range( rows + 1, len( content ) ):
+                colsInp[i - rows - 1 ] = list( map( int, content[i].split( ' ' ) ) )
 
-# with open( 'zad_output.txt', 'w' ) as out:
-#     with open( 'zad_input.txt' ) as inp:
-#         content = inp.read().splitlines()
-#     rows = int( content[0].split(' ')[0] )
-#     cols = int( content[0].split(' ')[1] )
-#     rowsInp = [0] * rows
-#     colsInp = [0] * cols
-#     for i in range( 1, rows + 1 ):
-#             rowsInp[i - 1] = list( map( int, content[i].split( ' ' ) ) )
-#     for i in range( rows + 1, len( content ) ):
-#             colsInp[i - rows - 1 ] = list( map( int, content[i].split( ' ' ) ) )
+        r = gen_possibilities( rows, rowsInp, cols )
+        c = gen_possibilities( cols, colsInp, rows )
+        (rB, cB) = minimizePossibilities( r, c, cols, rows )
+        
+        start = time()
+        result = checker( gen_permutations( rB ), colsInp, cols )
+        out.write( formatOutput( result ) )
 
-#     r = gen_possibilities( rows, rowsInp, cols )
-#     c = gen_possibilities( cols, colsInp, rows )
-#     (rB, cB) = minimizePossibilities( r, c, cols, rows )
-    
-#     start = time()
-#     result = checker( gen_permutations( rB ), colsInp, cols )
-#     #print( time() - start )
-#     out.write( formatOutput( result ) )
-
-# r = gen_possibilities( 9, [[1, 1, 1], [5, 1], [1,1,1,1], [5,1], [6,1], [7], [6], [1,3], [2,4]], 9 )
-# c = gen_possibilities( 9, [[4], [1,2,1], [8], [1,4], [7,1], [5], [5], [4], [6]], 9 )
-
-# ( rB, cB ) = minimizePossibilities( r, c, 9, 9 )
+if __name__ == '__main__':
+    zad1()

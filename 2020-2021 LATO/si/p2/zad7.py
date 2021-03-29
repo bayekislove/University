@@ -1,11 +1,6 @@
-from  heapq  import heappop, heappush
-
-def moveBoard( direction, positions, board ):
-    ( rDiff, cDiff ) = commandoDirections[direction]
-    newPos = set()
-    for (r, c) in positions:
-        newPos.add( (r + rDiff, c+cDiff) if board[r + rDiff][c+cDiff] != '#' else (r, c) )
-    return newPos
+from  random       import randint
+from  collections  import deque
+from  heapq        import heappop, heappush
 
 def prepareToVisualize( board ):
     ret = []
@@ -15,6 +10,22 @@ def prepareToVisualize( board ):
             r.append( position if position in {"#", "B", "G"} else ' ' )
         ret.append( r )
     return ret
+
+def moveBoard1( direction, positions, board ):
+    ( rDiff, cDiff ) = moveBoard1.directions[direction]
+    newPos = set()
+    for (row, pos) in positions:
+        if( board[ row ][ pos ] not in { 'S', 'B' } ):
+            continue
+        newPos.add( (row, pos) if board[row+rDiff][pos+cDiff] == '#' else (row+rDiff, pos+cDiff) )
+    return newPos
+
+def moveBoard2( direction, positions, board ):
+    ( rDiff, cDiff ) = commandoDirections[direction]
+    newPos = set()
+    for (r, c) in positions:
+        newPos.add( (r + rDiff, c+cDiff) if board[r + rDiff][c+cDiff] != '#' else (r, c) )
+    return newPos
 
 def startPositions( board ):
     ret = set()
@@ -31,8 +42,6 @@ def vents( board ):
             if board[j][i] in {'G', 'B' }:
                 ret.add( (j, i) )
     return ret
-
-rememberedClosestDistance = dict()
 
 def closestDistanceBFS( position, vents, board ):
     if( position in rememberedClosestDistance ):
@@ -65,7 +74,7 @@ def closestDistance( position, vents, board ):
 def closestDistanceAll( positions, vents, board ):
     return max( [ closestDistanceBFS( position, vents, board ) for position in positions ] )
 
-def aStarCommando( positions, vents, h, board ):
+def aStarCommando( positions, vents, h, board, sN ):
     #struktura danych -> ( koszt_dla_wcześniejszych węzłów, pozycje_komandosów, historia_ruchów )
     heap = []
     visited = set()
@@ -77,7 +86,7 @@ def aStarCommando( positions, vents, h, board ):
         visited.add( tuple(currCommando) )
 
         for i in range( 4 ):
-            newPos = moveBoard( i, currCommando, board )
+            newPos = moveBoard2( i, currCommando, board )
 
             if( tuple(newPos) in visited ):
                 continue
@@ -90,23 +99,46 @@ def aStarCommando( positions, vents, h, board ):
                 return moveHistory + commandoStrDirections[i]
 
             else:
-                currCost = h( newPos, vents, board )
-                heappush( heap, ( currCost + len(moveHistory), newPos, moveHistory + commandoStrDirections[i] ) )
+                currCost = ( (1+sN) * h( newPos, vents, board ) ) + len(moveHistory)
+                heappush( heap, ( currCost, newPos, moveHistory + commandoStrDirections[i] ) )
+
+def makeMoves( positions, board, num ):
+    blankBoard = prepareToVisualize( board )
+    lastMove = -1
+    moves = []  
+    while( len( positions ) > 10 ):
+        if( len( positions ) > -1 ):
+
+            direction = randint( 0, 3 ) #0 down, 1 left, 2 up, 3 right
+            while( direction == makeMoves.opposite[ lastMove ] ):
+                direction = randint( 0, 3 )
+            moves.append( makeMoves.strDirections[ direction ] )
+            lastMove = direction
+            positions = moveBoard1( direction, positions, board )
+
+    return (positions, ''.join( moves ) )
 
 commandoDirections = [ (1, 0), (0, -1), (-1, 0), (0, 1) ] # [down, left, up, right]
 commandoStrDirections = ['D', 'L', 'U', 'R']
+makeMoves.strDirections = ['D', 'L', 'U', 'R']
+makeMoves.opposite = [ 2, 3, 0, 1 ]
+moveBoard1.directions = [ (1, 0), (0, -1), (-1, 0), (0, 1) ]
+rememberedClosestDistance = dict()
 
-def zad5():
+def zad7():
     with open( 'zad_output.txt', 'w' ) as out:
         with open( 'zad_input.txt' ) as inp:
             rows = []
             for line in inp:
                 rows.append( line.strip('\n') )
 
-            sPos = startPositions( rows )
-            endPos = vents( rows )
+            ends = vents(rows)
+            best_path = 151
+            while( best_path > 80 ):
+                (path, mvs) = makeMoves( startPositions(rows), rows, 2 )
+                best_path = len(mvs)
+            res = aStarCommando( path, ends, closestDistanceAll, rows, 0.25 )
+            out.write( mvs + res )
 
-            res = aStarCommando( sPos, endPos, closestDistanceAll, rows )
-            out.write( res )
-
-zad5()
+zad7()
+                
