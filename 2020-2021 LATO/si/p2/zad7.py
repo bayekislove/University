@@ -140,5 +140,5 @@ def zad7():
             res = aStarCommando( path, ends, closestDistanceAll, rows, 0.25 )
             out.write( mvs + res )
 
-zad7()
-                
+if __name__ == '__main__':
+    zad7()               

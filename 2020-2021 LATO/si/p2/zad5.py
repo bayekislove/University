@@ -109,4 +109,5 @@ def zad5():
             res = aStarCommando( sPos, endPos, closestDistanceAll, rows )
             out.write( res )
 
-zad5()
+if __name__ == '__main__':
+    zad5()

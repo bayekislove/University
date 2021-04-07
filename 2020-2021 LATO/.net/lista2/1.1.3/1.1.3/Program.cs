@@ -17,19 +17,17 @@ namespace _1._1._3
 
             DateTime Start = DateTime.Now;
 
-            for( int i = 0; i < 10000000; i++)
+            for (int i = 0; i < 10000000; i++)
             {
-                zad113test.GetType().GetMethod("dostep").Invoke(zad113test, null);
+                zad113test.dostep();
             }
-
             DateTime End = DateTime.Now;
             Console.WriteLine(End - Start);
 
             Start = DateTime.Now;
-
             for (int i = 0; i < 10000000; i++)
             {
-                zad113test.dostep();
+                zad113test.GetType().GetMethod("dostep").Invoke(zad113test, null);
             }
             End = DateTime.Now;
             Console.WriteLine(End - Start);

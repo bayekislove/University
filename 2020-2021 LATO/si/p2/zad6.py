@@ -107,11 +107,12 @@ def zad5():
                 sPos = startPositions( rows )
                 endPos = vents( rows )
 
-                res = aStarCommando( sPos, endPos, closestDistanceAll, rows, 0.3 )
+                res = aStarCommando( sPos, endPos, closestDistanceAll, rows, 0.7 )
                 dlugosci.write( str(len(res)) + ';' )
                 out.write( res )
 
-zad5()
+if __name__ == '__main__':
+    zad5()
 
 #Stopień 0.0 -> heurystyka niezmieniona -> 44-48 sekundy, 526 ruchy
 #Stopień 0.3 -> 16 sekund (przechodzi 7 testów -> 553 )
