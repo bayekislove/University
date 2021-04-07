@@ -4,7 +4,7 @@ All the things I've done while studying computer science at University of Wrocla
 ## I semestr (ZIMA 2019 - 2020):
 * Analiza matematyczna (Calculus) 
 * Logika dla informatyków (Logic for Computer Science)
-* Kurs programowania: Python (Programming in Python) [a relative link](./Python)
+* <a href="/Python">Kurs programowania: Python (Programming in Python)</a>
 * Podstawowy warsztat informatyka (Computing for Computer Scientists)
 
 ## II semestr (LATO 2019-2020):
