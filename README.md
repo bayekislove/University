@@ -9,7 +9,7 @@ All the things I've done while studying computer science at University of Wrocla
 * Wstęp do informatyki (Introduction to Computer Science)
 
 ## II semestr (LATO 2019-2020):
-* <a href="/Programming methodology">Metody programowania (Programming methodology)</a>
+* <a href="/Programming Methodology">Metody programowania (Programming methodology)</a>
 * <a href="/Objective Programming">Programowanie obiektowe (Objective Programming)</a>
 * <a href="/Probability and Statistics">Rachunek prawdopodobieństwa i statystyka (Probability and Statistics)</a>
 * <a href="/C++">Kurs: C++ (C++ Course)</a>
