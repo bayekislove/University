@@ -93,8 +93,6 @@ def sokobanButBy( startPosition, boxes, targets, board ):
         remembered.add( frozenset(currBxsPos) )
 
         for ( newBoxes, movedBox, direction ) in genAllPossibleNewBoxesPositions( currBxsPos, board ):
-            if( newBoxes == {(0, (2, 1)), (1, (3, 3))} ):
-                print("PIZDA")
             if all( [ ( x in targets ) for (syf, x) in newBoxes ] ):
                 print( currHistory + [( movedBox, direction )] )
                 validation = validateMoves( startPosition, boxesStart, currHistory + [( movedBox, direction )], board )
