@@ -51,6 +51,10 @@ def genAllPossibleNewBoxesPositions( boxess, board ):
 
         for pos in possibilities:
             ( nR, nC, dir ) = pos
+            if  (( board[nR][nC] != 'G' ) and
+                ( board[nR][nC + 1] == 'W' or board[nR][nC - 1] == 'W' ) and
+                ( board[nR + 1][nC] == 'W' or board[nR - 1][nC] == 'W' ) ):
+                    continue
             boxes.remove( ( idx, box ) )
             boxes.add( ( idx, ( nR, nC ) ) )
 
@@ -161,7 +165,7 @@ def zad3():
             sokoban = findStorageman( rows )
             boxes = findBoxes( rows )
             targets = findAllTargets( rows )
-            
+
             print( sokobanButBy( sokoban, boxes, targets, rows ) )
             print(  )
 
