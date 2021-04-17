@@ -37,7 +37,6 @@ def print_constraints(Cs, indent, d):
             position = indent
             print (file=out)
             print (indent * ' ', end='', file=out)
-
       
 def sudoku(assigments):
     variables = [ V(i,j) for i in range(9) for j in range(9)]
