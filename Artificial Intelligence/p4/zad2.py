@@ -1,4 +1,7 @@
+from copy import deepcopy
+
 import random
+from typing import Tuple
 
 class WrongMove(Exception):
     pass
@@ -223,5 +226,37 @@ class Jungle:
         else:
             return None
 
-a = Jungle()
-print(a.moves(1))
+class zad2Player:
+
+    def __init__(self, game) -> None:
+        self.game : Jungle = game
+
+    def playRandomGame(self, copiedGame : Jungle) -> Tuple[int, int]: #(whoWon, number of moves)
+        moves = 1
+        if copiedGame.winner == None:
+            while copiedGame.update(copiedGame.curplayer, normalize(copiedGame.random_move(copiedGame.curplayer)) ) == None:
+                moves += 1
+        return (moves + 1, copiedGame.winner)
+
+    def move(self):
+        possibilities = self.game.moves(self.game.curplayer)
+        possibilitiesWon = [0] * len(possibilities)
+        allMoves = 0
+        while allMoves < 20000:
+
+            for i in range(len(possibilities)):
+                newBoard = deepcopy(self.game)
+                newBoard.do_move(possibilities[i])
+                (moves, winner) = self.playRandomGame(newBoard)
+                possibilitiesWon[i] += winner == self.game.curplayer
+                allMoves += moves
+                if allMoves > 20000:
+                    break
+
+        maxWon = max(possibilitiesWon)
+        bestMoves = [possibilities[i] for i in range(len(possibilities)) if possibilitiesWon[i] == maxWon ]
+        
+        return random.choice(bestMoves)
+
+def normalize(tup):
+    return f"{str(tup[0][0])} {str(tup[0][1])} {str(tup[1][0])} {str(tup[1][1])}"

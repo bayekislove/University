@@ -1,0 +1,20 @@
+Gracz A wygrał 974 razy, gracz B 20
+Czas trwania - 0.3094499588012695
+PS C:\Users\Kacper\Desktop\University\Artificial Intelligence\p4> & C:/Users/Kacper/AppData/Local/Programs/Python/Python39/python.exe "c:/Users/Kacper/Desktop/University/Artificial Intelligence/p4/zad1.py"
+Gracz A wygrał 974 razy, gracz B 24
+Czas trwania - 0.3132833123207092
+PS C:\Users\Kacper\Desktop\University\Artificial Intelligence\p4> & C:/Users/Kacper/AppData/Local/Programs/Python/Python39/python.exe "c:/Users/Kacper/Desktop/University/Artificial Intelligence/p4/zad1.py"
+Gracz A wygrał 974 razy, gracz B 19
+Czas trwania - 0.42065000931421914
+PS C:\Users\Kacper\Desktop\University\Artificial Intelligence\p4> & C:/Users/Kacper/AppData/Local/Programs/Python/Python39/python.exe "c:/Users/Kacper/Desktop/University/Artificial Intelligence/p4/zad1.py"
+Gracz A wygrał 975 razy, gracz B 18
+Czas trwania - 1.5102672497431437
+PS C:\Users\Kacper\Desktop\University\Artificial Intelligence\p4> & C:/Users/Kacper/AppData/Local/Programs/Python/Python39/python.exe "c:/Users/Kacper/Desktop/University/Artificial Intelligence/p4/zad1.py"
+Gracz A wygrał 966 razy, gracz B 24
+Czas trwania - 0.34670061270395913
+PS C:\Users\Kacper\Desktop\University\Artificial Intelligence\p4> & C:/Users/Kacper/AppData/Local/Programs/Python/Python39/python.exe "c:/Users/Kacper/Desktop/University/Artificial Intelligence/p4/zad1.py"
+Gracz A wygrał 976 razy, gracz B 17
+Czas trwania - 0.3637338995933533
+PS C:\Users\Kacper\Desktop\University\Artificial Intelligence\p4> & C:/Users/Kacper/AppData/Local/Programs/Python/Python39/python.exe "c:/Users/Kacper/Desktop/University/Artificial Intelligence/p4/zad1.py"
+Gracz A wygrał 974 razy, gracz B 21
+Czas trwania - 0.3444333155949911

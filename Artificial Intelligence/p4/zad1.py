@@ -132,7 +132,7 @@ class CleverPlayer:
     	          [100,  -50,   55,   40,   40,   55,  -50,   100]]
 
     def __init__(self, color, board):
-        self.board = board
+        self.board : Board = board
 
         self.color = color
         self.boardPos = board.getPositions(self.color)
@@ -154,13 +154,41 @@ class CleverPlayer:
     #     self.board.whiteTurn = not self.board.whiteTurn
     #     return cur - nex
 
+    def __getStabilityInDirection(self, startField, checkSet, rD, cD):
+        ret = set()
+        if startField in checkSet:
+            ret.add(startField)
+            while (startField[0] + rD, startField[1] + cD) in checkSet:
+                ret.add( (startField[0] + rD, startField[1] + cD) )
+                startField = (startField[0] + rD, startField[1] + cD)
+                
+        return ret
+
+    def __getStability(self, color):
+        checkSet = self.board.whites if color else self.board.blacks
+        stableFields = set()
+        stableFields.update( self.__getStabilityInDirection( (0,0), checkSet, 0, 1 ) )
+        stableFields.update( self.__getStabilityInDirection( (0,0), checkSet, 1, 0 ) )
+
+        stableFields.update( self.__getStabilityInDirection( (7,7), checkSet, -1, 0 ) )
+        stableFields.update( self.__getStabilityInDirection( (7,7), checkSet, 0, -1 ) )
+
+        stableFields.update( self.__getStabilityInDirection( (0,7), checkSet, 1, 0 ) )
+        stableFields.update( self.__getStabilityInDirection( (0,7), checkSet, 0, -1 ) )
+        
+        stableFields.update( self.__getStabilityInDirection( (7,0), checkSet, -1, 0 ) )
+        stableFields.update( self.__getStabilityInDirection( (7,0), checkSet, 0, 1 ) )
+
+        return len(stableFields)
+
+
     def __h(self):
 
         score = 0
         score += 0.5 * self.__calculateScore(self.board.board, self.__priority)
 
-        # if self.board.movesMade > 30:
-        #     score += 0.5 * self.__calculateScore(self.board.board, self.__ePriority)
+        #if self.board.movesMade > 30:
+        #   score += 0.5 * self.__calculateScore(self.board.board, self.__ePriority)
 
         (b, w) = self.board.calculate()
 
@@ -169,10 +197,12 @@ class CleverPlayer:
                 score += 3*(w - b)
             else:
                 score += 3*(b - w) 
+        
+        score += 30*(self.__getStability(self.color) - self.__getStability(not self.color))
 
         return score
 
-    def moveB(self):
+    def move(self):
         poss = self.board.getAllPossibilitiesToMove()
         if( len(poss) == 0 ):
             return False
@@ -196,7 +226,7 @@ class CleverPlayer:
                 maxScore = (score, rP, cP)
         self.board.addDisk( maxScore[1], maxScore[2] )
 
-    def move(self):
+    def moveB(self):
         poss = self.board.getAllPossibilitiesToMove()
         if( len(poss) == 0 ):
             return False
@@ -204,7 +234,7 @@ class CleverPlayer:
         (_, r, c) = self.__alphaBetaSearch(3, toReturn=True)
         self.board.addDisk(r, c)
 
-    def __alphaBetaSearch(self, d, α = -10000, ϐ = 10000, toReturn = False):
+    def __alphaBetaSearch(self, d, α = -1000000, ϐ = 1000000, toReturn = False):
         if d == 0:
             return self.__h()
         if self.board.whiteTurn == self.color: #szukamy najlepszej opcji dla siebie
@@ -275,29 +305,26 @@ def playGame(playerW, playerB):
     (b, w) = brd.calculate()
     return "B" if b > w else ("W" if w > b else "D")
 
-def simulation(num, pA, pB):
+def simulation(pA, pB, num):
     pAWon = 0
     pBWon = 0
-    essa = {'W' : 0, 'B' : 0, 'D' : 0}
-    for i in range(num):
+
+    for _ in range(num):
         res = playGame(pA, pB)
-        essa[res] += 1
         if( res == 'W' ):
             pAWon += 1
         if( res == 'B' ):
             pBWon += 1
         res = playGame(pB, pA)
-        essa[res] += 1
+
         if( res == 'W' ):
             pBWon += 1
         if( res == 'B' ):
             pAWon += 1
 
-    print(f"Gracz A wygrał {pAWon} razy, gracz B - {pBWon}")
-    print(f"Biały {essa['W']}, czarny {essa['B']}")
-
+    print(f"Gracz A wygrał {pAWon} razy, gracz B {pBWon}")
 
 if __name__ == '__main__':
     start = time()
-    simulation(500, CleverPlayer, RandomPlayer)
-    print(f"Czas trwania - {time() - start}")
+    simulation(RandomPlayer, RandomPlayer, 500)
+    print(f"Czas trwania - {(time() - start) / 60}")
