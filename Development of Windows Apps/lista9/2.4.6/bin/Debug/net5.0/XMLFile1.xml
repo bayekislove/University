@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ListaStudentow nazwa="Studenci">
+  <Student imie="A" nazwisko="B">
+    <AdresStaly miasto="Szczecin"/>
+    <AdresTymczasowy/>
+    <ListaZajec>
+      <Przedmiot nazwa="AISD" ocena="2"/>
+        </ListaZajec>
+  </Student>
+  <Student imie="Y" nazwisko="X">
+    <AdresStaly miasto="Warszawa"/>
+    <AdresTymczasowy miasto="Wrocław"/>
+    <ListaZajec>
+      <Przedmiot nazwa="AISD" ocena="2"/>
+        <Przedmiot nazwa="PPW" ocena="2"/>
+        </ListaZajec>
+  </Student>
+</ListaStudentow>

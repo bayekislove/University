@@ -1,0 +1,7 @@
+C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista8\2.5.1\bin\Debug\2.5.1.exe.config
+C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista8\2.5.1\bin\Debug\2.5.1.exe
+C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista8\2.5.1\bin\Debug\2.5.1.pdb
+C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista8\2.5.1\obj\Debug\2.5.1.csprojAssemblyReference.cache
+C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista8\2.5.1\obj\Debug\2.5.1.csproj.CoreCompileInputs.cache
+C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista8\2.5.1\obj\Debug\2.5.1.exe
+C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista8\2.5.1\obj\Debug\2.5.1.pdb

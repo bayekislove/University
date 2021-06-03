@@ -1,0 +1,28 @@
+﻿<Window x:Class="_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="40, 40, 40, 40">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Slider x:Name="Sliderek" VerticalAlignment="Center" ValueChanged="Sliderek_ValueChanged"></Slider>
+        <StackPanel Grid.Row="1" Margin="10, 10, 10, 10">
+            <RadioButton Checked="A_Checked" x:Name="A" FontSize="17" GroupName="percentage">0%</RadioButton>
+            <RadioButton Checked="B_Checked" x:Name="B" FontSize="17" GroupName="percentage">25%</RadioButton>
+            <RadioButton Checked="C_Checked" x:Name="C" FontSize="17" GroupName="percentage">50%</RadioButton>
+            <RadioButton Checked="D_Checked" x:Name="D" FontSize="17" GroupName="percentage">75%</RadioButton>
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+            <Label FontSize="20"  Content="Najlepsze pole na Twoje hasło!"/>
+            <PasswordBox Name="PassHidden" FontSize="20" Margin="40,10,40,10" PasswordChar="#" PasswordChanged="PasswordBox_PasswordChanged"/>
+            <Label Content="" FontSize="15" Name="PassSeen"></Label>
+        </StackPanel>
+    </Grid>
+</Window>

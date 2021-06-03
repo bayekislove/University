@@ -1,0 +1,10 @@
+Deklaruję zadania:
+2.4.1 -> 0pkt
+2.4.2 -> 1pkt
+2.4.3 -> 1pkt (w folderze 2.4.2)
+2.4.4 -> 1pkt
+2.4.5 -> 1pkt
+2.4.6 -> 1pkt
+2.4.7 -> 1pkt
+
+Za łączną liczbę punktów: 6/6.

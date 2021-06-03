@@ -1,0 +1,13 @@
+﻿Instalowanie zestawu 'C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista7\2.3.9\bin\Debug\2.3.9.exe'.
+Uwzględnione parametry to:
+   logtoconsole = 
+   logfile = C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista7\2.3.9\bin\Debug\2.3.9.InstallLog
+   assemblypath = C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista7\2.3.9\bin\Debug\2.3.9.exe
+Nie można znaleźć instalatorów publicznych z atrybutem RunInstallerAttribute.Yes w zestawie C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista7\2.3.9\bin\Debug\2.3.9.exe.
+Zatwierdzanie zestawu 'C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista7\2.3.9\bin\Debug\2.3.9.exe'.
+Uwzględnione parametry to:
+   logtoconsole = 
+   logfile = C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista7\2.3.9\bin\Debug\2.3.9.InstallLog
+   assemblypath = C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista7\2.3.9\bin\Debug\2.3.9.exe
+Nie można znaleźć instalatorów publicznych z atrybutem RunInstallerAttribute.Yes w zestawie C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista7\2.3.9\bin\Debug\2.3.9.exe.
+Usuwanie pliku InstallState z powodu braku instalatorów.

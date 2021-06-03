@@ -1,0 +1,7 @@
+C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista7\2.3.11\obj\Debug\2.3.11.csprojAssemblyReference.cache
+C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista7\2.3.11\obj\Debug\2.3.11.csproj.CoreCompileInputs.cache
+C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista7\2.3.11\bin\Debug\2.3.11.exe.config
+C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista7\2.3.11\bin\Debug\2.3.11.exe
+C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista7\2.3.11\bin\Debug\2.3.11.pdb
+C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista7\2.3.11\obj\Debug\2.3.11.exe
+C:\Users\Kacper\Desktop\University\Development of Windows Apps\lista7\2.3.11\obj\Debug\2.3.11.pdb
