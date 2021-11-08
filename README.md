@@ -26,8 +26,17 @@ All the things I've done while studying computer science at University of Wrocla
 * <a href="/Software Development">Wybrane elementy praktyki projektowania obiektowego (Practical Software Development)</a>
 * Współczesne stosunki międzynarodowe (Contemporary International Relations)
 
-### *IV semestr (LATO 2020-2021)*:
+## IV semestr (LATO 2020-2021):
 * <a href="/Algorithms and Data Structures">Algorytmy i struktury danych (Algorithms and Data Structures)</a>
 * <a href="/Architecture of Computer Systems">Architektury systemów komputerowych (Computer Architecture for Programmers)</a>
 * <a href="/Development of Windows Apps">Programowanie pod Windows w technologii .NET (Development of .NET Windows Apps)</a>
 * <a href="/Artificial Intelligence">Sztuczna inteligencja (Artificial Intelligence)</a>
+
+## V semestr (ZIMA 2021-2022):
+* <a href="/Embedded Systems">Systemy wbudowane (Embedded Systems)</a>
+* <a href="/Operating Systems">Systemy operacyjne (Operating Systems)</a>
+* <a href="/Unity">Kurs projektowania gier w silniku Unity (Unity Game Development Course)</a>
+* <a href="/ASP.NET">Kurs projektowania aplikacji w technologii ASP.NET (Development of ASP.NET Apps)</a>
+* <a href="/Advanced Python">Zaawansowany kurs języka Python (Advanced Python Course)</a>
+* Ochrona Własności Intelektualnej (Protection of Intellectual Property)
+* Włoski: poziom A1-II (Italian: A1-II course)
