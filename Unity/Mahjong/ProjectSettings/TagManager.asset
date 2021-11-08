@@ -3,12 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - TileTag
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - TileTag
   - Water
   - UI
   - 
@@ -40,4 +41,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: TileSortingLayerBg
+    uniqueID: 4004131413
+    locked: 0
+  - name: TileSortingLayerFg
+    uniqueID: 2767414123
     locked: 0
