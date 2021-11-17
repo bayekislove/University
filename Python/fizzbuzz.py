@@ -1,14 +1,14 @@
-# -*- encoding: utf-8 -*-
+import np
 
+a = open("aaa.csv")
+b = a.read()
+csvLines = b.split('\n')
+for i in range(0, len(csvLines)):
+    line = csvLines[i]
+    line = line.split(',')
+    for j in range(0, len(line)):
+        if line[j] == '':
+            line[j] = None
+    csvLines[i] = line
 
-import textwrap
-
-
-def main():
-    key_words = {3: "Fizz", 5: "Buzz"}
-    fizzbuzz = {n: "".join(["" if n%i else mess for i, mess in key_words.items()]) for n in range(1, 51)}
-    print(textwrap.fill(repr(fizzbuzz), 80))
-
-
-if __name__ == "__main__":
-    main()
+print(csvLines)
