@@ -1,6 +1,5 @@
 from typing import Dict
 
-
 class Wyrazenie:
 
     def __init__(self, left, right, operator, operatorSign) -> None:
