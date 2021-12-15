@@ -77,7 +77,7 @@ class DBManagement:
             print(f"[{book.id}] {book.title} written by {book.author}, publicated {book.publication_date}")
 
 if __name__ == "__main__":
-    argv = ["", "--dodaj", "osoba", "c,b"]
+    argv = ["", "--dodaj", "osoba", "Kacper,k@gmail.com"]
     polecenie = argv[1].replace("-", "")
     if polecenie == "wypisz":
         if argv[2] == "ksiazka":
@@ -106,4 +106,3 @@ if __name__ == "__main__":
     except:
         raise "python3 zad1.py --wypozycz wypozyczajacy,tytul_ksiazki"
     session.close()
-

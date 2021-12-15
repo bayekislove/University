@@ -147,7 +147,7 @@ int main()
         BOCR = 1 << (((uint8_t)(rgb[2] * sinus[i])) >> 5);
         printf("r: %u, G: %u, B: %f\r\n", 2 << (((uint8_t)(rgb[0] * sinus[i])) >> 5), 2 << (((uint8_t)(rgb[1] * sinus[i])) >> 5), 2 << (((uint8_t)(rgb[2] * sinus[i])) >> 5));
       }
-      printf("ASDA\r\n");
+      //printf("ASDA\r\n");
       for(uint8_t i = 0; i < 90; i++){
         ROCR = 1 << (((uint8_t)(rgb[0] * sinus[90-i])) >> 5);
         GOCR = 1 << (((uint8_t)(rgb[1] * sinus[90-i])) >> 5);
