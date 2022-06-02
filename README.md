@@ -40,3 +40,10 @@ All the things I've done while studying computer science at University of Wrocla
 * <a href="/Advanced Python">Zaawansowany kurs języka Python (Advanced Python Course)</a>
 * Ochrona Własności Intelektualnej (Protection of Intellectual Property)
 * Włoski: poziom A1-II (Italian: A1-II course)
+
+## VI SEMESTR (LATO 2021-2022):
+* <a href="/Computer Networks">Sieci komputerowe (Computer Networks)</a>
+* <a href="/Design of Database Apps">Kurs projektowania aplikacji z bazami danych (Design of Database Applications)</a>
+* <a href="/Game Testing">Testowanie gier (Game Testing)</a>
+* <a href="/Object-Oriented Software Design">Projektowanie Obiektowe Oprogramowania (Object-Oriented Software Design)</a>
+* Włoski: poziom A2-I (Italian: A2-I course)</a>
