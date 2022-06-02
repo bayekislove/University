@@ -1,0 +1,64 @@
+ZADANIE 1
+
+SELECT DISTINCT addr.City FROM SalesLT.Address addr
+WHERE EXISTS (SELECT 1 FROM SalesLT.SalesOrderHeader header 
+			  WHERE header.ShipToAddressID = addr.AddressID) 
+ORDER BY City DESC
+
+
+
+
+ZADANIE 2
+
+SELECT model.Name, COUNT(product.ProductID) AS "Counter"
+FROM SalesLT.ProductModel model, SalesLT.Product product
+WHERE model.ProductModelID = product.ProductModelID
+GROUP BY model.Name HAVING COUNT(product.ProductID) > 1
+
+
+
+ZADANIE 3
+
+SELECT addr.City, COUNT(custAddr.CustomerID) AS 'Customers', COUNT(DISTINCT cust.SalesPerson) AS 'SalesPeople'
+FROM SalesLT.Address addr, SalesLT.CustomerAddress custAddr, SalesLT.Customer cust
+WHERE addr.AddressID = custAddr.AddressID AND cust.CustomerID = custAddr.AddressID
+GROUP BY addr.City
+
+
+
+
+ZADANIE 7
+
+CREATE TABLE Test1 (
+    ID int NOT NULL IDENTITY(1000, 10),
+    Letter char(1),
+    PRIMARY KEY (ID)
+);
+
+INSERT INTO dbo.Test (letter) VALUES ('b');
+
+
+ZADANIE 8
+
+-- listing all constraints 
+--SELECT * 
+--FROM INFORMATION_SCHEMA.CHECK_CONSTRAINTS
+
+--adding a constraint
+--ALTER TABLE SalesLT.SalesOrderHeader
+--ADD CONSTRAINT zad8constraints CHECK ([ShipDate]>=[OrderDate] OR [ShipDate] IS NULL);
+
+-- droping a constraint
+-- ALTER TABLE SalesLT.SalesOrderHeader
+-- DROP CONSTRAINT zad8constraint
+
+-- MOZNA TEZ W TABELI WYKLIKAC POLOWE TEGO ZADANIA, NP EDYCJE CONSTRAINTA, PODGLADANIE WARUNKOW ITP
+
+-- updating element to a conflict with a constraint
+UPDATE SalesLT.SalesOrderHeader
+SET OrderDate = '2008/06/10' WHERE SalesOrderID = 71774
+
+-- get all conflicting rows
+SELECT *
+FROM SalesLT.SalesOrderHeader
+WHERE NOT ([ShipDate]>=[OrderDate] OR [ShipDate] IS NULL) --jak lepiej?

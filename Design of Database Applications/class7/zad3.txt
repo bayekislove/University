@@ -1,0 +1,11 @@
+Filmy w których grał wybrany aktor:
+MATCH (:Person {name: "Tom Hanks"})-[:ACTED_IN]->(movies) RETURN movies
+
+Filmy w których dana osoba była producentem i reżyserem:
+MATCH (p:Person)-[:ACTED_IN]->(m:Movie), (p)-[:DIRECTED]->(m) return p
+
+Aktor który nie grał w żadnym filmie:
+MATCH (p:Person)-[ain:ACTED_IN]->(m:Movie) with p, count(m) as counter WHERE counter = 0 return p
+
+Aktor który grał w więcej niż 4 filmach:
+MATCH (p:Person)-[ain:ACTED_IN]->(m:Movie) with p, count(m) as counter WHERE counter > 4 return p

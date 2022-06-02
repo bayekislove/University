@@ -1,0 +1,179 @@
+ZADANIE 1
+DROP FUNCTION IF EXISTS LiczbaEgzemplarzyDlaCzytelnika
+GO
+
+CREATE FUNCTION LiczbaEgzemplarzyDlaCzytelnika(@dnie int) RETURNS TABLE
+	RETURN SELECT PESEL, COUNT(Liczba_Dni) AS LiczbaEgzemparzy
+	FROM dbo.Wypozyczenie, dbo.Czytelnik 
+	WHERE Liczba_Dni > @dnie AND Czytelnik.Czytelnik_ID = Wypozyczenie.Czytelnik_ID
+	GROUP BY PESEL
+GO
+
+SELECT * FROM LiczbaEgzemplarzyDlaCzytelnika(3)
+GO
+
+
+
+
+ZADANIE 2
+USE Test
+DROP PROCEDURE IF EXISTS zapelnijDane
+GO
+
+CREATE PROCEDURE zapelnijDane @n int
+AS
+BEGIN
+	DECLARE @i int
+	SET @i = 0
+
+	IF (@n > (((SELECT COUNT(DISTINCT imie) FROM imiona) * (SELECT COUNT(DISTINCT nazwisko) FROM nazwiska)) / 2))
+	BEGIN
+		;THROW 51111, 'Nieprawidlowe dane do zadania', 1;
+	END
+
+	DELETE FROM dane
+	DECLARE @losoweNazwisko varchar(50)
+	DECLARE @losoweImie varchar(50)
+
+	WHILE @i < @n
+	BEGIN
+		SET @losoweNazwisko = (SELECT TOP 1 nazwisko FROM nazwiska ORDER BY NEWID())
+		SET @losoweImie = (SELECT TOP 1 imie FROM imiona ORDER BY NEWID())
+		IF NOT EXISTS (SELECT * FROM dane WHERE @losoweNazwisko = nazwisko AND @losoweImie = imie) 
+			BEGIN
+			INSERT INTO dane VALUES(@losoweImie, @losoweNazwisko)
+			SET @i  = @i + 1
+			END
+	END
+
+END
+GO
+
+EXEC zad2 @n = 3
+GO
+
+
+
+
+ZADANIE 3
+DROP PROCEDURE IF EXISTS walidujCzytelnika
+GO
+
+CREATE PROCEDURE walidujCzytelnika (@nazwisko varchar(30), @PESEL char(11), @dataur date, @miasto varchar(30)) AS 
+BEGIN
+DECLARE @dataJakoString char(8)
+SET @dataJakoString = CONVERT(char(8), @dataur, 112)
+
+PRINT SUBSTRING(@dataJakoString, 5, 2)
+PRINT SUBSTRING(@PESEL, 3, 2)
+IF (LEN(@nazwisko) < 2)
+	THROW 100000, 'Nazwisko musi miec dlugosc wieksza od 1!', 1;
+
+IF (SUBSTRING(@nazwisko, 1, 1) = UPPER(SUBSTRING(@nazwisko, 1, 1)))
+	THROW 100000, 'Nazwisko musi zaczynac sie od wielkiej litery!', 1;
+
+IF (LEN(@PESEL) != 11)
+	THROW 100000, 'PESEL musi miec dlugosc 11', 1;
+
+IF (SUBSTRING(@dataJakoString, 3, 2) != SUBSTRING(@PESEL, 1, 2))
+	THROW 100000, 'Rok w PESELu jest niepoprawny!', 1;
+
+IF (SUBSTRING(@dataJakoString, 5, 2) != SUBSTRING(@PESEL, 3, 2))
+	THROW 100000, 'Miesiac w PESELu jest niepoprawny!', 1;
+
+IF (SUBSTRING(@dataJakoString, 7, 2) != SUBSTRING(@PESEL, 5, 2))
+	THROW 100000, 'Dzien w PESELu jest niepoprawny!', 1;
+--przepraszam za niezaimplementowanie calej walidacji
+PRINT 'PESEL JEST POPRAWNY'
+INSERT INTO Czytelnik (PESEL, Nazwisko, Data_Urodzenia, Miasto) VALUES(@PESEL, @nazwisko, @dataur, 'Szczecin')
+END
+GO
+
+EXEC walidujCzytelnika @nazwisko = 'Nowak', @PESEL = '79111522232', @dataur = '1979-11-15', @miasto = 'Warszawa'
+GO
+
+
+
+
+ZADANIE 4
+
+USE Test
+DROP PROCEDURE IF EXISTS przezIleWypozyczalKsiazke;
+GO
+
+DROP TYPE IF EXISTS identyfikatory;
+GO
+
+CREATE TYPE identyfikatory AS TABLE
+(identyfikator int);
+GO
+
+DROP TYPE IF EXISTS sumaDni;
+GO
+
+CREATE TYPE sumaDni AS TABLE (
+    czytelnik_id int, 
+    suma_dni int);
+GO
+
+CREATE PROCEDURE przezIleWypozyczalKsiazke @Lista identyfikatory READONLY
+AS
+BEGIN
+    SELECT Czytelnik_ID, SUM(Liczba_dni) AS Suma_Dni FROM Wypozyczenie
+    INNER JOIN @Lista ON identyfikator = Czytelnik_ID
+    GROUP BY Czytelnik_ID
+END
+GO
+
+DECLARE @lista identyfikatory
+INSERT INTO @lista VALUES(2)
+INSERT INTO @lista VALUES(3)
+
+EXEC przezIleWypozyczalKsiazke @lista
+GO
+
+
+
+
+
+ZADANIE 6
+
+USE AdventureWorksLT2019
+DROP TYPE IF EXISTS identyfikatoryy;
+GO
+
+CREATE TYPE identyfikatoryy AS TABLE
+(identyfikator int);
+GO
+
+DROP PROCEDURE IF EXISTS uaktualnijDate;
+GO
+
+CREATE PROCEDURE uaktualnijDate @lista identyfikatoryy READONLY, @data DATE
+AS
+BEGIN
+    IF ((SELECT COUNT(DiscontinuedDate)
+         FROM SalesLT.Product
+         INNER JOIN @lista ON SalesLT.Product.ProductID = identyfikator
+         WHERE DiscontinuedDate IS NOT NULL) > 0)
+			BEGIN
+			;THROW 100000, 'Wykryto nienulla', 1;
+			END
+    ELSE
+        BEGIN
+            UPDATE SalesLT.Product
+            SET DiscontinuedDate = @data
+            FROM SalesLT.Product
+            INNER JOIN @lista ON SalesLT.Product.ProductID = identyfikator
+        END
+END
+GO
+
+DECLARE @lista identyfikatoryy
+INSERT INTO @lista VALUES(710)
+
+DECLARE @data DATETIME
+SET @data = GETDATE()
+
+EXEC uaktualnijDate @lista, @data
+GO

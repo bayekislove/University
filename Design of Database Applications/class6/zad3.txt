@@ -1,0 +1,86 @@
+To tylko dodaje walidator przy wrzucaniu nowych rekordów, żeby sprawdzić już istniejące:
+db.collection.validate()
+
+db.runCommand({
+	collMod: "ksiazki",
+	validator: {
+		$jsonSchema: {
+			bsonType: "object",
+			required: ["tytul", "autor", "rokWydania", "egzemplarze"],
+			properties: {
+				tytul: {
+					bsonType: "string"
+				},
+				autor: {
+					bsonType: "string"
+				},
+				rokWydania: {
+					bsonType: "int",
+					minimum: 1970,
+					maximum: 2030,
+				},
+				egzemplarze: {
+					bsonType: "array",
+					required: ["nr"],
+					properties: {
+                        		nr: {
+                            		bsonType: "string",
+                            		minimum: 1
+                        		}
+					}
+				}
+			} 
+		}
+	}
+})
+
+db.runCommand({
+	collMod: "czytelnicy",
+	validator: {
+		$jsonSchema: {
+			bsonType: "object",
+			required: ["imie", "nazwisko", "pesel", "dataUrodzenia"],
+			properties: {
+				imie: {
+					bsonType: "string"
+				},
+				nazwisko: {
+					bsonType: "string"
+				},
+				pesel: {
+					bsonType: "string",
+					pattern: "^[0-9]{11}$"
+				},
+				dataUrodzenia: {
+					bsonType: "date"
+				}
+			} 
+		}
+	}
+})
+
+//The warning messages do not indicate that the collection is itself invalid. For example: ???????
+
+db.runCommand({
+	collMod: "wypozyczenia",
+	validator: {
+		$jsonSchema: {
+			bsonType: "object",
+			required: ["idCzytelnika", "idKsiazki", "nrEgzemplarza", "dataWypozyczenia"],
+			properties: {
+				idCzytelnika: {
+					bsonType: "int"
+				},
+				idKsiazki: {
+					bsonType: "int"
+				},
+				nrEgzemplarza: {
+					bsonType: "int"
+				},
+				dataWypozyczenia: {
+					bsonType: "date"
+				}
+			} 
+		}
+	}
+})

@@ -1,0 +1,21 @@
+Dodanie 2 nowych aktorów:
+create(:Person{born:1959, name: "Kevin Spacey"})
+create(:Person{born:1983, name: "Andrew Garfield"})
+
+Dodanie 2 nowych filmów:
+create(:Movie{released:2010, title:"The Social Network", description:"Aaa"})
+create(:Movie{released:2022, title:"New film", description:"random"})
+
+Dodanie 2 properties do filmu The Social Network:
+match(m:Movie{title : "The Social Network"}) set m.actors = 30 return m
+match(m:Movie{title : "The Social Network"}) set m.earnings=20000000 return m
+
+Dodaj 2 nowe związki acted_in:
+match(m:Movie{title : "The Social Network"}) match(p:Person{name : "Kevin Spacey"}) merge (p)-[:ACTED_IN]->(m)
+match(m:Movie{title : "New film"}) match(p:Person{name : "Kevin Spacey"}) merge (p)-[:ACTED_IN]->(m)
+
+Zaktualizuj property w wybranym filmie:
+match(m:Movie{title : "The Social Network"}) set m.earnings=toString(20000000) return m
+
+Usun 1 związek acted_in:
+match(:Person{name : "Kevin Spacey"})-[ain:ACTED_IN]->(m:Movie{title:"The Social Network"}) delete ain

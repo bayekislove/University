@@ -1,0 +1,80 @@
+use biblioteka
+
+db.createCollection('ksiazki')
+db.createCollection('czytelnicy')
+db.createCollection('wypozyczenia')
+
+db.ksiazki.insertOne({
+    _id: 1,
+    tytul: "ksiazkaA",
+    autor: "autorA",
+    rokWydania: 2000,
+    egzemplarze: [
+        {
+            nr: "1"
+        }
+    ]
+})
+
+db.ksiazki.insertOne({
+    _id: 2,
+    tytul: "ksiazkaB",
+    autor: "autorB",
+    rokWydania: 2000,
+    egzemplarze: [
+        {
+            nr: "1"
+        },
+	  {
+		nr: "2"
+	  }
+    ]
+})
+
+db.czytelnicy.insertOne({
+    	_id: 3,
+	imie: "Jan",
+	nazwisko: "Kowalski",
+	pesel: "11111111111",
+	dataUrodzenia: new Date("2000-02-01")
+})
+
+db.czytelnicy.insertOne({
+    	_id: 2,
+	imie: "Jan",
+	nazwisko: "Nowak",
+	pesel: "22222222222",
+	dataUrodzenia: "2000-02-02"
+})
+
+db.wypozyczenia.insertOne({
+	_id: 1,
+	idCzytelnika: 1,
+	idKsiazki: 1,
+	nrEgzemplarza: 1,
+	dataWypozyczenia: "2022-04-01"
+})
+
+db.wypozyczenia.insertOne({
+	_id: 2,
+	idCzytelnika: 1,
+	idKsiazki: 1,
+	nrEgzemplarza: 1,
+	dataWypozyczenia: "2020-01-02"
+})
+
+db.wypozyczenia.insertOne({
+	_id: 3,
+	idCzytelnika: 2,
+	idKsiazki: 2,
+	nrEgzemplarza: 1,
+	dataWypozyczenia: "2022-04-01"
+})
+
+db.wypozyczenia.insertOne({
+	_id: 4,
+	idCzytelnika: 2,
+	idKsiazki: 2,
+	nrEgzemplarza: 2,
+	dataWypozyczenia: "2022-04-01"
+})

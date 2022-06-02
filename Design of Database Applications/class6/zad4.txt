@@ -1,0 +1,11 @@
+Posortowanie po malejących indeksach:
+db.czytelnicy.find().sort( { _id: -1 } )
+
+Zwrot wszystkich elementow w kolekcji:
+db.wypozyczenia.countDocuments()
+
+Wypisanie dwóch srodkowych elementow z posortowanej listy:
+db.wypozyczenia.find().sort( { _id: 1 } ).skip(Math.ceil(db.wypozyczenia.countDocuments() / 2) - 1).limit(2)
+
+Wypisanie tylko tych książek, które mają egzemplarz o numerze 2:
+db.ksiazki.find({egzemplarze: {nr: "2"}})
