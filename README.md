@@ -39,11 +39,16 @@ All the things I've done while studying computer science at University of Wrocla
 * <a href="/ASP.NET">Kurs projektowania aplikacji w technologii ASP.NET (Development of ASP.NET Apps)</a>
 * <a href="/Advanced Python">Zaawansowany kurs języka Python (Advanced Python Course)</a>
 * Ochrona Własności Intelektualnej (Protection of Intellectual Property)
-* Włoski: poziom A1-II (Italian: A1-II course)
+* Jęz. włoski: poziom A1-II (Italian: A1-II course)
 
 ## VI SEMESTR (LATO 2021-2022):
 * <a href="/Computer Networks">Sieci komputerowe (Computer Networks)</a>
 * <a href="/Design of Database Apps">Kurs projektowania aplikacji z bazami danych (Design of Database Applications)</a>
 * <a href="/Game Testing">Testowanie gier (Game Testing)</a>
 * <a href="/Object-Oriented Software Design">Projektowanie Obiektowe Oprogramowania (Object-Oriented Software Design)</a>
-* Włoski: poziom A2-I (Italian: A2-I course)</a>
+* Jęz. włoski: poziom A2-I (Italian: A2-I course)
+
+## VII SEMESTR (ZIMA 2022-2023):
+* Inżynieria Oprogramowania (Software engineering)
+* Proseminarium: Bezpieczeństwo i ochrona informacji (Seminar: Information Safety and Security)
+* Jęz. włoski: poziom A2-II (Italian: A2-2 course)
