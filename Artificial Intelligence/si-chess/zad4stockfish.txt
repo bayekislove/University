@@ -1,0 +1,6 @@
+bayekislove@DESKTOP-U6END1U:~/si/si-chess$ /bin/python3 /home/bayekislove/si/si-chess/zad4.py
+437
+bayekislove@DESKTOP-U6END1U:~/si/si-chess$ /bin/python3 /home/bayekislove/si/si-chess/zad4.py
+446
+bayekislove@DESKTOP-U6END1U:~/si/si-chess$ /bin/python3 /home/bayekislove/si/si-chess/zad4.py
+910

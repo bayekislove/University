@@ -1,0 +1,12 @@
+﻿@model zad4.Models.User
+@{
+    ViewBag.Title = "Logon";
+}
+
+<h2>Logon</h2>
+<form name="loginForm" method="post">
+    Login: @Html.TextBoxFor(m => m.username) <br />
+    Password: @Html.PasswordFor(m => m.password) <br />
+    <input type="submit" name="submit" />
+</form>
+

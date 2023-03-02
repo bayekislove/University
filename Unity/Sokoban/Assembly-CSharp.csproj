@@ -39,6 +39,7 @@
      <Compile Include="Assets\PlayerMovement.cs" />
      <Compile Include="Assets\LevelManagement.cs" />
      <Compile Include="Assets\BoxInPlace.cs" />
+     <Compile Include="Assets\CameraController.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:\Unity Hub\2020.3.22f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

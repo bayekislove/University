@@ -10,7 +10,8 @@ public class LevelManagement : MonoBehaviour
     [SerializeField]
     int currentLevel;
 
-    private HashSet<GameObject> boxesOnPlace;
+    [SerializeField]
+    HashSet<GameObject> boxesOnPlace;
 
     public void Start()
     {
@@ -26,6 +27,7 @@ public class LevelManagement : MonoBehaviour
     public void handleBoxInserted(GameObject box)
     {
         boxesOnPlace.Add(box);
+        Debug.Log(boxesOnPlace.Count);
         if(boxesOnPlace.Count == maxBoxes){
             if(currentLevel == maxLevel){
                 Debug.Log("YOU WON!");

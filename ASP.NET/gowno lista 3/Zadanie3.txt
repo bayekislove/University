@@ -1,7 +1,0 @@
-Przeczytałem strony https://docs.microsoft.com/pl-pl/dotnet/api/system.web.httprequest?view=netframework-4.8
-i https://docs.microsoft.com/pl-pl/dotnet/api/system.web.httpresponse?view=netframework-4.8 
-Nagłowki odczytuje się jako kolekcje z pola Headers Requestu.
-tworzyc mozna nagłowki funkcja Add() do headerów albo AppendHeader dodajamy dwie wartosci pare lucz wartosc
-MapPath fukcja ta dostaje sciezjke wirtualna i zwraca sciezke fizyczna  
-Current przydaje się do pozyskiwania aktualnego kontekstu i modyfikowania go bez wpływu na kontekst aktualnej strony
-Właściwośc Server przechowuje referencje

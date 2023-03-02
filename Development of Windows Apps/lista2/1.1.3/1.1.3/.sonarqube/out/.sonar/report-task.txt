@@ -1,0 +1,6 @@
+projectKey=bbb
+serverUrl=http://localhost:9000
+serverVersion=9.4.0.54424
+dashboardUrl=http://localhost:9000/dashboard?id=bbb
+ceTaskId=AX_2qGHOqQoVg7z5EZ8x
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AX_2qGHOqQoVg7z5EZ8x

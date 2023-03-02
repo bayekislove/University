@@ -1,0 +1,8 @@
+﻿<form id="addForm" method="post">
+    <input type="hidden" name="id" id="id" value=@Request.QueryString[0] />
+    Author: @Html.TextBox("Author")<br />
+    Title: @Html.TextBox("Title")<br />
+    Year of publication: @Html.TextBox("PublicationYear")<br />
+    <input type="submit" id="submitButton" value="Edytuj książkę" /> <br />
+    @Html.ActionLink("Wróć", "Index", "Home")<br />
+</form>

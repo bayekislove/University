@@ -1,0 +1,11 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\Kacper\\Downloads\\mockito-core-4.6.1.jar",
+        "c:\\Users\\Kacper\\Downloads\\mockito-junit-jupiter-4.6.1.jar",
+        "c:\\Users\\Kacper\\Downloads\\byte-buddy-1.12.10.jar",
+        "c:\\Users\\Kacper\\Downloads\\objenesis-3.2.jar"
+    ]
+}

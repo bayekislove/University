@@ -1,0 +1,24 @@
+﻿@model MVCCMSRouting.Models.Page.PageRenderModel
+@{
+    ViewBag.Title = "Render";
+}
+
+Wyrenderowane przez <b>PageController::Render</b>
+<br />
+<form name="add" id="add" method="post">
+    <input type="text" id="route" name="route" />
+    <input type="submit" value="Dodaj stronę!">
+</form>
+
+<div>
+    Witryna @Model.Site
+</div>
+<div>
+    Strona @Model.Page
+</div>
+<div>
+    Zawartość: <br />
+    @Html.TextArea("PageEdit", Model.Content, 70, 200, null);
+</div>
+@Html.ActionLink("Zapisz zmiany", "SavePage", Model)
+

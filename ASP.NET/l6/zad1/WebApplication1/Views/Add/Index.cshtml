@@ -1,0 +1,9 @@
+﻿<h2>Add</h2>
+
+<form id="addForm" method="post">
+    Author: @Html.TextBox("Author")<br />
+    Title: @Html.TextBox("Title")<br />
+    Year of publication: @Html.TextBox("PublicationYear")<br />
+    <input type="submit" id="submitButton" value="Dodaj książkę"/>
+    @Html.ActionLink("Wróć", "Index", "Home");
+</form>

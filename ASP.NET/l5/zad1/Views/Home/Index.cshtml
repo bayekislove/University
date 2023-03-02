@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<h2>Home</h2>
+<form method="post">
+    Imie: <input type="text" name="imie" /><br />
+    Nazwisko: <input type="text" name="nazwisko" /><br />
+    Data: <input type="text" name="data" /><br />
+    Przedmiot: <input type="text" name="przedmiot" /><br />
+    @for (int i = 0; i < 10; i++)
+    {
+         @:Zad@(i.ToString()) <input type="text" name=@($"zad{i.ToString()}") /><br />
+    }
+    <input type="submit" value="Zadeklaruj!" />
+</form>

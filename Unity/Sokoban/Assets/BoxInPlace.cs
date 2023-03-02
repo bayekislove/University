@@ -12,8 +12,10 @@ public class BoxInPlace : MonoBehaviour
     {
         if(collisionInfo.gameObject.tag == "BoxTag")
         {
+            GetComponent<AudioSource>().Play();
             visualSign.GetComponent<Renderer>().material.color = Color.green;
             levelManagement.handleBoxInserted(collisionInfo.collider.gameObject);
+
         }
     }
 

@@ -1,0 +1,9 @@
+SRP - interfejs/moduł powinien mieć tylko jedną odpowiedzialność
+ISP - kod nie powininen zależeć od czegoś, czego nie potrzebujemy
+
+Oba te interfejsy reprezentują różne spojrzenie na podobną ideę, SRP skupia się bardziej na kodzie dostarczyciela usługi a ISP na kodzie
+klienckim. 
+
+Wexmy np. klasę Kolejka z metodami kolejkuj() i zdekolejkuj(). Jeśli klient potrzebowałby tylko metody kolejkuj(), według ISP powinniśmy
+oddzielić te dwie metody żeby klient nie korzystał ze zdekolejkuj(), której nie potrzebuje. Według SRP jednak ta klasa jest w zupełności
+w porzadku.

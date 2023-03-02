@@ -25,4 +25,4 @@ int main()
     pom2[2] = 1;
     cout << "pom2 to nowa tablica, wyglada tak: " << pom2 << endl;
     cout << "a pom1 | pom2 tak: " << (pom1 | pom2) << endl;
-    }
+}

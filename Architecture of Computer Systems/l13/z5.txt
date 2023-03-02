@@ -1,0 +1,19 @@
+  PID   RSS    VSZ CMD
+    1   652   1048 /init
+ 2166    92    900 /init
+ 2167    92    900 /init
+ 2168  5236  10164 -bash
+ 2231   488   1396 /init
+ 2232   488   1396 /init
+ 2233   604   2608 sh -c "$VSCODE_WSL_EXT_LOCATION/scripts/wslServer.sh" 054a9295330880ed74ceaedda236253b4f39a335 stable .vscode-server 0  
+ 2234  1828   2608 sh /mnt/c/Users/Kacper/.vscode/extensions/ms-vscode-remote.remote-wsl-0.56.4/scripts/wslServer.sh 054a9295330880ed74ceaedda236253b4f39a335 stable .vscode-server 0
+ 2240   608   2608 sh /home/bayekislove/.vscode-server/bin/054a9295330880ed74ceaedda236253b4f39a335/server.sh  --port=0 --use-host-proxy --without-browser-env-var --print-ip-address --enable-remote-auto-shutdown
+ 2242 71592 1001048 /home/bayekislove/.vscode-server/bin/054a9295330880ed74ceaedda236253b4f39a335/node /home/bayekislove/.vscode-server/bin/054a9295330880ed74ceaedda236253b4f39a335/out/vs/server/main.js  --port=0 --use-host-proxy --without-browser-env-var --print-ip-address --enable-remote-auto-shutdown
+ 2253 40708 894432 /home/bayekislove/.vscode-server/bin/054a9295330880ed74ceaedda236253b4f39a335/node /home/bayekislove/.vscode-server/bin/054a9295330880ed74ceaedda236253b4f39a335/out/bootstrap-fork --type=ptyHost
+ 2265 39904 875900 /home/bayekislove/.vscode-server/bin/054a9295330880ed74ceaedda236253b4f39a335/node /home/bayekislove/.vscode-server/bin/054a9295330880ed74ceaedda236253b4f39a335/out/bootstrap-fork --type=watcherService
+ 2295 194040 1437560 /home/bayekislove/.vscode-server/bin/054a9295330880ed74ceaedda236253b4f39a335/node /home/bayekislove/.vscode-server/bin/054a9295330880ed74ceaedda236253b4f39a335/out/bootstrap-fork --type=extensionHost --uriTransformerPath=/home/bayekislove/.vscode-server/bin/054a9295330880ed74ceaedda236253b4f39a335/out/vs/server/uriTransformer.js --useHostProxy=
+ 2306  5044  10004 /bin/bash
+ 2335 27780 1823536 /home/bayekislove/.vscode-server/extensions/ms-vscode.cpptools-1.4.1/bin/cpptools
+ 2452 203464 21882080 /home/bayekislove/.vscode-server/bin/054a9295330880ed74ceaedda236253b4f39a335/node /home/bayekislove/.vscode-server/extensions/ms-python.vscode-pylance-2021.6.1/dist/server.bundle.js --cancellationReceive=file:ea58d6813cbcf62c9310d22b57c375c9fcd17ae745 --node-ipc --clientProcessId=2295
+ 2569  4640  11072 sudo ps -e -o pid,rss,vsz,cmd
+ 2570  3152  10536 ps -e -o pid,rss,vsz,cmd

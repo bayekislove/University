@@ -1,0 +1,16 @@
+D:\University\Object-Oriented Software Development\class6\class6\bin\Debug\net5.0\class6.exe
+D:\University\Object-Oriented Software Development\class6\class6\bin\Debug\net5.0\class6.deps.json
+D:\University\Object-Oriented Software Development\class6\class6\bin\Debug\net5.0\class6.runtimeconfig.json
+D:\University\Object-Oriented Software Development\class6\class6\bin\Debug\net5.0\class6.runtimeconfig.dev.json
+D:\University\Object-Oriented Software Development\class6\class6\bin\Debug\net5.0\class6.dll
+D:\University\Object-Oriented Software Development\class6\class6\bin\Debug\net5.0\ref\class6.dll
+D:\University\Object-Oriented Software Development\class6\class6\bin\Debug\net5.0\class6.pdb
+D:\University\Object-Oriented Software Development\class6\class6\obj\Debug\net5.0\class6.csproj.AssemblyReference.cache
+D:\University\Object-Oriented Software Development\class6\class6\obj\Debug\net5.0\class6.GeneratedMSBuildEditorConfig.editorconfig
+D:\University\Object-Oriented Software Development\class6\class6\obj\Debug\net5.0\class6.AssemblyInfoInputs.cache
+D:\University\Object-Oriented Software Development\class6\class6\obj\Debug\net5.0\class6.AssemblyInfo.cs
+D:\University\Object-Oriented Software Development\class6\class6\obj\Debug\net5.0\class6.csproj.CoreCompileInputs.cache
+D:\University\Object-Oriented Software Development\class6\class6\obj\Debug\net5.0\class6.dll
+D:\University\Object-Oriented Software Development\class6\class6\obj\Debug\net5.0\ref\class6.dll
+D:\University\Object-Oriented Software Development\class6\class6\obj\Debug\net5.0\class6.pdb
+D:\University\Object-Oriented Software Development\class6\class6\obj\Debug\net5.0\class6.genruntimeconfig.cache

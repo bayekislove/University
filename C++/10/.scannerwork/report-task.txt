@@ -1,0 +1,6 @@
+projectKey=testowanie3
+serverUrl=http://localhost:9000
+serverVersion=9.4.0.54424
+dashboardUrl=http://localhost:9000/dashboard?id=testowanie3
+ceTaskId=AX_2ok87qQoVg7z5EZ8j
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AX_2ok87qQoVg7z5EZ8j

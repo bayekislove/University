@@ -1,0 +1,31 @@
+﻿@using zad3.Models
+@model Student
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    @Html.DropDownListFor(m => m.studentGender, new SelectList(Enum.GetValues((typeof(Gender)))), "Your Gender")
+    <br />
+    @Html.Password("PasswordField")
+    <br />
+    @Html.TextArea("TextArea", "Type something about yourself...", 20, 70, new { })
+    <br />
+    @Html.ActionLink("Get letter A", "A")
+    <br />
+    <br />
+    I: @Html.CheckBox("I", false)
+    <br />
+    II: @Html.CheckBox("II", false)
+    <br />
+    III: @Html.CheckBox("III", false)
+    <br />
+    Native in english: @Html.RadioButtonFor(m => m.ifEngNative, "ifEngNative", false)
+    <br />
+    @Html.Raw(Html.Encode("aaa\nbbb\n").Replace("\n", "<br />"))
+    <br />
+    @Html.Encode("aaa\nbbb\n").Replace("\n", "<br />")
+</div>

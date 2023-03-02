@@ -1,0 +1,7 @@
+Klasa Array w bibliotece standardowej języka C# narusza zasadę ISP, ponieważ implementuje interfejs IList nie implementując metody Add. 
+Skoro klasa Array nie potrzebuje metody Add (bo nie zapewnia jej implementacji), to wszystko, co będzie po niej dziedziczyć też będzie 
+musiało zaimplementować metodę Add mimo że może jej nie potrzebować. Kod wykorzystujący Array jest więc zależny od Array, które nie posiada
+zaimplementowanych wszystkich potrzebnych mu metod.
+
+Naprawić ten kod można albo nie implementując interfejsu IList, albo pisząc osobny interfejs, który nie będzie wymagał metody Add. Można też
+zaimplementować w ciele klasy Array metodę Add.

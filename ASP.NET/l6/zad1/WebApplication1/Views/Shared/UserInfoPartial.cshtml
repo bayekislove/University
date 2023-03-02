@@ -1,0 +1,12 @@
+﻿@* Widok częściowy (Partial View) - nagłówek. 
+   Jest wywoływany bezpośrednio z widoku Layoutu, dlatego nie ma jak otrzymać instancji modelu z konkretnego widoku.
+   Zamiast tego deklaruje typ modelu jako interfejs (IUserInfo), który następnie implementują modele wszystkich widoków
+   renderowanych z tego samego layoutu
+*@
+@model WebApplication1.Models.IUserInfo
+@{}
+
+<header>
+    Zalogowany użytkownik: @Model.UserName
+</header>
+

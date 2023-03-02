@@ -1,0 +1,30 @@
+﻿@model WebApplication1.Models.WebGridDemoIndexModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@Html.ActionLink("Dodaj książkę!", "Index", "Add")<br />
+@{
+    var grid = new WebGrid(canPage: true, rowsPerPage: 10);
+    grid.Bind(source: Model.Users.Items,
+              rowCount: Model.Users.TotalCount, autoSortAndPage: false);
+}
+
+<div>
+    @grid.Table(
+            columns: grid.Columns(
+                grid.Column("ID", "ID"),
+                grid.Column("Author", "Author"),
+                grid.Column("Title", "Title"),
+                grid.Column("PYear", "Publication Year"),
+                grid.Column(format:
+                    item =>
+                        Html.ActionLink("Edycja", "Index", "Edit", new { id = item.ID, no = item.ID },
+                        new { id = item.ID }), canSort: false)
+            )
+        )
+</div>
+<div>
+    @grid.Pager(WebGridPagerModes.All, "<<", "<", ">", ">>")
+</div>
